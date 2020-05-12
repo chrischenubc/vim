@@ -31,7 +31,7 @@ autocmd ColorScheme * highlight clear SpellBad
 autocmd ColorScheme * highlight SpellBad term=underline cterm=underline
 
 " Color theme
-colorscheme default
+colorscheme abstract
 set background=dark
 
 " Highlight tabs, trailing spaces.
@@ -61,27 +61,53 @@ set autoindent
 """"""""""""""
 " Interface
 """"""""""""""
+" source /usr/share/vim/vim80/delmenu.vim
+" source /usr/share/vim/vim80/menu.vim
+
 set cmdheight=2
 " Add a bit extra margin to the left
-set foldcolumn=1
+"set foldcolumn=1
 " Linebreak on 500 characters
 set lbr
 set tw=500
+
 
 """"""""""""""
 " Plugins.
 """"""""""""""
 call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'amix/open_file_under_cursor.vim'
+Plug 'preservim/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
+
+""""""""""""""""""""""""""""""
+" => Status line
+"  """"""""""""""""""""""""""""""
+if !has('gui_running')
+      set t_Co=256
+  endif
+" Always show the status line
+set laststatus=2
+set noshowmode
+
+" Format the status line
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 """"""""""""""
 " key binding
 """"""""""""""
 nmap <leader>w :w!<cr>
+nmap <leader>p :PlugInstall<CR>
 map <space> /
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -179,3 +205,6 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+
+source ./plugins_config.vim
