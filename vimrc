@@ -15,10 +15,10 @@ set noswapfile
 
 " line number (set relative number: rnu)
 set number
-set relativenumber
 set rnu
 set rnu!
 set norelativenumber
+set relativenumber
 
 let mapleader = ","
 let g:mapleader = ","
@@ -30,9 +30,6 @@ filetype plugin indent on
 autocmd ColorScheme * highlight clear SpellBad
 autocmd ColorScheme * highlight SpellBad term=underline cterm=underline
 
-" Color theme
-colorscheme abstract
-set background=dark
 
 " Highlight tabs, trailing spaces.
 set list!
@@ -59,20 +56,6 @@ set noexpandtab
 set autoindent
 
 """"""""""""""
-" Interface
-""""""""""""""
-" source /usr/share/vim/vim80/delmenu.vim
-" source /usr/share/vim/vim80/menu.vim
-
-set cmdheight=2
-" Add a bit extra margin to the left
-"set foldcolumn=1
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
-
-""""""""""""""
 " Plugins.
 """"""""""""""
 call plug#begin('~/.vim/plugged')
@@ -88,7 +71,25 @@ Plug 'amix/open_file_under_cursor.vim'
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'yegappan/mru'
 call plug#end()
+
+""""""""""""""
+" Interface
+""""""""""""""
+" source /usr/share/vim/vim80/delmenu.vim
+" source /usr/share/vim/vim80/menu.vim
+
+set cmdheight=2
+" Add a bit extra margin to the left
+"set foldcolumn=1
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+" Color theme
+colorscheme abstract
+set background=dark
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -206,5 +207,4 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
-
-source ./plugins_config.vim
+source ~/.vim/plugins_config.vim
