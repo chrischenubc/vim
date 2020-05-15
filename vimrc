@@ -72,6 +72,11 @@ Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'yegappan/mru'
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-unimpaired'
+Plug 'rhysd/clever-f.vim'
 call plug#end()
 
 """"""""""""""
@@ -208,3 +213,4 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 source ~/.vim/plugins_config.vim
+source ~/.vim/my_config.vim
